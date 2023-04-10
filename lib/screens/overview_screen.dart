@@ -1,4 +1,4 @@
-import 'package:dashboard/widgets/charts/bar_chart_card.dart';
+import 'package:dashboard/widgets/charts/bar_chart/bar_chart_card.dart';
 import 'package:dashboard/widgets/card_tile.dart';
 import 'package:dashboard/widgets/closable_text_card.dart';
 import 'package:flutter/material.dart';

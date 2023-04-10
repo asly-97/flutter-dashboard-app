@@ -1,8 +1,6 @@
+import 'package:dashboard/widgets/charts/bar_chart/bar_chart_sample.dart';
 import 'package:dashboard/widgets/charts/chart_card_header.dart';
 import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
-
-import 'bar_chart.dart';
 
 class BarChartCard extends StatelessWidget {
   const BarChartCard({Key? key}) : super(key: key);
@@ -21,7 +19,7 @@ class BarChartCard extends StatelessWidget {
               subTitle: 'Statistics',
               onFilter: () {},
             ),
-            BarChartSample3(),
+            BarChartSample(),
           ],
         ),
       ),

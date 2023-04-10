@@ -1,3 +1,4 @@
+import 'package:dashboard/util/app_colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class _BarChart extends StatelessWidget {
             return BarTooltipItem(
               rod.toY.round().toString(),
               const TextStyle(
-                color: Colors.cyan,
+                color: Colors.transparent,
                 fontWeight: FontWeight.bold,
               ),
             );
@@ -51,25 +52,37 @@ class _BarChart extends StatelessWidget {
     String text;
     switch (value.toInt()) {
       case 0:
-        text = 'Mn';
+        text = '18';
         break;
       case 1:
-        text = 'Te';
+        text = '19';
         break;
       case 2:
-        text = 'Wd';
+        text = '20';
         break;
       case 3:
-        text = 'Tu';
+        text = '21';
         break;
       case 4:
-        text = 'Fr';
+        text = '22';
         break;
       case 5:
-        text = 'St';
+        text = '23';
         break;
       case 6:
-        text = 'Sn';
+        text = '24';
+        break;
+      case 7:
+        text = '25';
+        break;
+      case 8:
+        text = '26';
+        break;
+      case 9:
+        text = '27';
+        break;
+      case 10:
+        text = '28';
         break;
       default:
         text = '';
@@ -106,22 +119,13 @@ class _BarChart extends StatelessWidget {
         show: false,
       );
 
-  LinearGradient get _barsGradient => LinearGradient(
-        colors: [
-          Colors.blueGrey,
-          Colors.cyan,
-        ],
-        begin: Alignment.bottomCenter,
-        end: Alignment.topCenter,
-      );
-
   List<BarChartGroupData> get barGroups => [
         BarChartGroupData(
           x: 0,
           barRods: [
             BarChartRodData(
-              toY: 8,
-              gradient: _barsGradient,
+              toY: 4,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -131,7 +135,7 @@ class _BarChart extends StatelessWidget {
           barRods: [
             BarChartRodData(
               toY: 10,
-              gradient: _barsGradient,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -141,7 +145,7 @@ class _BarChart extends StatelessWidget {
           barRods: [
             BarChartRodData(
               toY: 14,
-              gradient: _barsGradient,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -151,7 +155,7 @@ class _BarChart extends StatelessWidget {
           barRods: [
             BarChartRodData(
               toY: 15,
-              gradient: _barsGradient,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -161,7 +165,7 @@ class _BarChart extends StatelessWidget {
           barRods: [
             BarChartRodData(
               toY: 13,
-              gradient: _barsGradient,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -170,8 +174,8 @@ class _BarChart extends StatelessWidget {
           x: 5,
           barRods: [
             BarChartRodData(
-              toY: 10,
-              gradient: _barsGradient,
+              toY: 2,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -180,8 +184,48 @@ class _BarChart extends StatelessWidget {
           x: 6,
           barRods: [
             BarChartRodData(
-              toY: 16,
-              gradient: _barsGradient,
+              toY: 6,
+              color: AppColors.blue,
+            )
+          ],
+          showingTooltipIndicators: [0],
+        ),
+        BarChartGroupData(
+          x: 7,
+          barRods: [
+            BarChartRodData(
+              toY: 10,
+              color: AppColors.blue,
+            )
+          ],
+          showingTooltipIndicators: [0],
+        ),
+        BarChartGroupData(
+          x: 8,
+          barRods: [
+            BarChartRodData(
+              toY: 3,
+              color: AppColors.blue,
+            )
+          ],
+          showingTooltipIndicators: [0],
+        ),
+        BarChartGroupData(
+          x: 9,
+          barRods: [
+            BarChartRodData(
+              toY: 17,
+              color: AppColors.blue,
+            )
+          ],
+          showingTooltipIndicators: [0],
+        ),
+        BarChartGroupData(
+          x: 10,
+          barRods: [
+            BarChartRodData(
+              toY: 10,
+              color: AppColors.blue,
             )
           ],
           showingTooltipIndicators: [0],
@@ -189,18 +233,18 @@ class _BarChart extends StatelessWidget {
       ];
 }
 
-class BarChartSample3 extends StatefulWidget {
-  const BarChartSample3({super.key});
+class BarChartSample extends StatefulWidget {
+  const BarChartSample({super.key});
 
   @override
-  State<StatefulWidget> createState() => BarChartSample3State();
+  State<StatefulWidget> createState() => BarChartSampleState();
 }
 
-class BarChartSample3State extends State<BarChartSample3> {
+class BarChartSampleState extends State<BarChartSample> {
   @override
   Widget build(BuildContext context) {
     return const AspectRatio(
-      aspectRatio: 1.6,
+      aspectRatio: 2.2,
       child: _BarChart(),
     );
   }
