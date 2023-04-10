@@ -1,4 +1,4 @@
-import 'package:dashboard/splash_screen.dart';
+import 'package:dashboard/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dashboard App',
+      theme: ThemeData.dark(),
       home: SplashScreen(),
     );
   }
