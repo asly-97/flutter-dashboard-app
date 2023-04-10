@@ -1,3 +1,4 @@
+import 'package:dashboard/screens/overview_screen.dart';
 import 'package:dashboard/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Dashboard App',
-      theme: ThemeData.dark(),
+      theme: ThemeData.light(),
       home: SplashScreen(),
+      routes: {
+        SplashScreen.ROUTE: (context) => SplashScreen(),
+        OverviewScreen.ROUTE: (context) => OverviewScreen(),
+      },
     );
   }
 }

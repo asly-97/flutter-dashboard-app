@@ -1,9 +1,27 @@
 import 'dart:ffi';
 
+import 'package:dashboard/screens/overview_screen.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+  static final String ROUTE = 'SPLASH_SCREEN_ROUTE';
+
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushNamed(context, OverviewScreen.ROUTE);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +55,7 @@ class SplashScreen extends StatelessWidget {
                       ),
                       Text(
                         'App Name',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ],
                   ),
