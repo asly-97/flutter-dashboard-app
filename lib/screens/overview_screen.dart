@@ -1,7 +1,10 @@
+import 'package:dashboard/util/app_colors.dart';
+import 'package:dashboard/widgets/bottom_nav_bar.dart';
 import 'package:dashboard/widgets/charts/bar_chart/bar_chart_card.dart';
 import 'package:dashboard/widgets/card_tile.dart';
 import 'package:dashboard/widgets/charts/pie_chart/pie_chart_card.dart';
 import 'package:dashboard/widgets/closable_text_card.dart';
+import 'package:dashboard/widgets/nav_bar_button.dart';
 import 'package:flutter/material.dart';
 
 class OverviewScreen extends StatelessWidget {
@@ -34,9 +37,11 @@ class OverviewScreen extends StatelessWidget {
       ),
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 20,
+        padding: const EdgeInsets.only(
+          top: 4,
+          left: 10,
+          right: 10,
+          bottom: 40,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,13 +95,13 @@ class OverviewScreen extends StatelessWidget {
           ],
         ),
       )),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
-        ],
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.blue,
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
