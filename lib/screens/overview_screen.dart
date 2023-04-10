@@ -1,5 +1,6 @@
 import 'package:dashboard/widgets/charts/bar_chart/bar_chart_card.dart';
 import 'package:dashboard/widgets/card_tile.dart';
+import 'package:dashboard/widgets/charts/pie_chart/pie_chart_card.dart';
 import 'package:dashboard/widgets/closable_text_card.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +39,7 @@ class OverviewScreen extends StatelessWidget {
           vertical: 20,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -71,9 +73,6 @@ class OverviewScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -86,10 +85,8 @@ class OverviewScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
             BarChartCard(),
+            PieChartCard(),
           ],
         ),
       )),
