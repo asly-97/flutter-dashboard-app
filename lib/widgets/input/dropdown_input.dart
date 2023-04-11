@@ -17,12 +17,17 @@ class SelectionItem {
 class DropdownInput extends StatefulWidget {
   final String label;
   final bool addable;
+  final bool withBookmark;
+  final bool showInfoIcon;
   List<SelectionItem> selectionItems = [];
 
-  DropdownInput(
-      {required this.label,
-      required List<String> items,
-      this.addable = false}) {
+  DropdownInput({
+    required this.label,
+    required List<String> items,
+    this.addable = false,
+    this.withBookmark = true,
+    this.showInfoIcon = true,
+  }) {
     //initialize selection items
     int i = 100;
     for (var item in items) {
@@ -55,16 +60,17 @@ class _DropdownInputState extends State<DropdownInput> {
       child: Row(
         children: [
           Text(item.title),
-          IconButton(
-              onPressed: () {
-                setState(() {
-                  item.bookmarked = !item.bookmarked;
-                });
-              },
-              icon: Icon(
-                Icons.bookmark,
-                color: item.bookmarked ? AppColors.yellow : AppColors.midGrey,
-              )),
+          if (widget.withBookmark)
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    item.bookmarked = !item.bookmarked;
+                  });
+                },
+                icon: Icon(
+                  Icons.bookmark,
+                  color: item.bookmarked ? AppColors.yellow : AppColors.midGrey,
+                )),
         ],
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       ),
@@ -120,11 +126,19 @@ class _DropdownInputState extends State<DropdownInput> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Icon(
-                Icons.info_outline,
-                color: AppColors.midGrey,
-                size: 18,
-              ),
+              if (widget.showInfoIcon && !widget.addable)
+                Icon(
+                  Icons.info_outline,
+                  color: AppColors.midGrey,
+                  size: 18,
+                ),
+              if (widget.addable)
+                Text(
+                  '+add',
+                  style: TextStyle(
+                    color: AppColors.blue,
+                  ),
+                ),
             ],
           ),
           SizedBox(height: 4),
