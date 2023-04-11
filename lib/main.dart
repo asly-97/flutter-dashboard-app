@@ -1,3 +1,4 @@
+import 'package:dashboard/screens/form_screen.dart';
 import 'package:dashboard/screens/overview_screen.dart';
 import 'package:dashboard/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.ROUTE: (context) => SplashScreen(),
         OverviewScreen.ROUTE: (context) => OverviewScreen(),
+        FormScreen.ROUTE: (context) => FormScreen(),
       },
     );
   }

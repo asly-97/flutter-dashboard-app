@@ -1,3 +1,4 @@
+import 'package:dashboard/screens/form_screen.dart';
 import 'package:dashboard/util/app_colors.dart';
 import 'package:dashboard/widgets/navbar/bottom_nav_bar.dart';
 import 'package:dashboard/widgets/charts/bar_chart/bar_chart_card.dart';
@@ -7,14 +8,14 @@ import 'package:dashboard/widgets/closable_text_card.dart';
 import 'package:flutter/material.dart';
 
 class OverviewScreen extends StatelessWidget {
-  static final String ROUTE = 'SPLASH_SCREEN_ROUTE';
+  static final String ROUTE = 'OVERVIEW_SCREEN_ROUTE';
 
   const OverviewScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: AppColors.lightGrey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: false,
@@ -96,7 +97,9 @@ class OverviewScreen extends StatelessWidget {
       )),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.blue,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, FormScreen.ROUTE);
+        },
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
