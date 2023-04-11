@@ -1,4 +1,4 @@
-import 'package:dashboard/widgets/charts/chart_card_header.dart';
+import 'package:dashboard/widgets/charts/card_header/card_header.dart';
 import 'package:dashboard/widgets/charts/pie_chart/pie_chart_sample.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class PieChartCard extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            ChartCardHeader(
+            CardHeader(
               title: 'Progress',
               subTitle: 'Today',
               onFilter: () {},

@@ -1,10 +1,9 @@
 import 'package:dashboard/util/app_colors.dart';
-import 'package:dashboard/widgets/bottom_nav_bar.dart';
+import 'package:dashboard/widgets/navbar/bottom_nav_bar.dart';
 import 'package:dashboard/widgets/charts/bar_chart/bar_chart_card.dart';
 import 'package:dashboard/widgets/card_tile.dart';
 import 'package:dashboard/widgets/charts/pie_chart/pie_chart_card.dart';
 import 'package:dashboard/widgets/closable_text_card.dart';
-import 'package:dashboard/widgets/nav_bar_button.dart';
 import 'package:flutter/material.dart';
 
 class OverviewScreen extends StatelessWidget {
@@ -51,7 +50,7 @@ class OverviewScreen extends StatelessWidget {
               child: Row(
                 children: [
                   CardTile(
-                      icon: Icons.emoji_objects_sharp,
+                      icon: Icons.explore,
                       iconColor: Colors.blue,
                       title: '150',
                       subTitle: 'My observations'),

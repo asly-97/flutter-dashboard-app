@@ -6,4 +6,5 @@ abstract class AppColors {
   static final Color mainTextColor = Colors.grey.shade900;
   static final Color yellow = Colors.yellow.shade700;
   static final Color green = Colors.green.shade500;
+  static final Color white = Colors.grey.shade100;
 }

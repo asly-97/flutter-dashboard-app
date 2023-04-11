@@ -1,7 +1,8 @@
+import 'package:dashboard/widgets/charts/card_header/filter_popup.dart';
 import 'package:flutter/material.dart';
 
-class ChartCardHeader extends StatelessWidget {
-  const ChartCardHeader({
+class CardHeader extends StatelessWidget {
+  const CardHeader({
     required this.title,
     required this.subTitle,
     required this.onFilter,
@@ -37,7 +38,14 @@ class ChartCardHeader extends StatelessWidget {
           ],
         ),
         GestureDetector(
-          onTap: onFilter,
+          onTap: () {
+            showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                builder: (context) {
+                  return FilterPopup();
+                });
+          },
           child: Icon(Icons.more_vert),
         ),
       ],

@@ -1,4 +1,4 @@
-import 'package:dashboard/widgets/nav_bar_button.dart';
+import 'package:dashboard/widgets/navbar/nav_bar_button.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -9,7 +9,7 @@ class BottomNavBar extends StatelessWidget {
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       clipBehavior: Clip.antiAlias,
-      notchMargin: 10,
+      notchMargin: 5,
       child: Container(
         height: 60,
         child: Row(
@@ -31,7 +31,7 @@ class BottomNavBar extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NavBarButton(Icons.remove_red_eye),
+                  NavBarButton(Icons.explore),
                   NavBarButton(Icons.image_outlined),
                 ],
               ),
