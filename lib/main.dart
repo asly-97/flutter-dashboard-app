@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Dashboard App',
       theme: ThemeData.light(),
-      home: SplashScreen(),
+      initialRoute: FormScreen.ROUTE,
       routes: {
         SplashScreen.ROUTE: (context) => SplashScreen(),
         OverviewScreen.ROUTE: (context) => OverviewScreen(),
