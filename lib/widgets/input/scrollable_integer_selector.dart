@@ -85,6 +85,7 @@ class _ScrollableIntegerSelectorState extends State<ScrollableIntegerSelector> {
             Expanded(
               child: SingleChildScrollView(
                 controller: controller,
+                clipBehavior: Clip.antiAlias,
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [

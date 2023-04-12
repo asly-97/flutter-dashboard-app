@@ -19,6 +19,7 @@ class DropdownInput extends StatefulWidget {
   final bool addable;
   final bool withBookmark;
   final bool showInfoIcon;
+  final bool visible;
   List<SelectionItem> selectionItems = [];
 
   DropdownInput({
@@ -27,6 +28,7 @@ class DropdownInput extends StatefulWidget {
     this.addable = false,
     this.withBookmark = true,
     this.showInfoIcon = true,
+    this.visible = true,
   }) {
     //initialize selection items
     int i = 100;
@@ -109,41 +111,44 @@ class _DropdownInputState extends State<DropdownInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 0.0,
-        vertical: 8.0,
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                widget.label,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              if (widget.showInfoIcon && !widget.addable)
-                Icon(
-                  Icons.info_outline,
-                  color: AppColors.midGrey,
-                  size: 18,
-                ),
-              if (widget.addable)
+    return Visibility(
+      visible: widget.visible,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 0.0,
+          vertical: 8.0,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
                 Text(
-                  '+add',
+                  widget.label,
                   style: TextStyle(
-                    color: AppColors.blue,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-            ],
-          ),
-          SizedBox(height: 4),
-          buildDropdownButton(),
-        ],
+                if (widget.showInfoIcon && !widget.addable)
+                  Icon(
+                    Icons.info_outline,
+                    color: AppColors.midGrey,
+                    size: 18,
+                  ),
+                if (widget.addable)
+                  Text(
+                    '+add',
+                    style: TextStyle(
+                      color: AppColors.blue,
+                    ),
+                  ),
+              ],
+            ),
+            SizedBox(height: 4),
+            buildDropdownButton(),
+          ],
+        ),
       ),
     );
   }
