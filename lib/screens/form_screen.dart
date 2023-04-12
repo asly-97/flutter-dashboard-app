@@ -2,11 +2,21 @@ import 'package:dashboard/util/app_colors.dart';
 import 'package:dashboard/widgets/icon_text_button.dart';
 import 'package:dashboard/widgets/input/dropdown_input.dart';
 import 'package:dashboard/widgets/input/scrollable_integer_selector.dart';
+import 'package:dashboard/widgets/input/single_select_double_toggle.dart';
 import 'package:flutter/material.dart';
 
-class FormScreen extends StatelessWidget {
-  const FormScreen({Key? key}) : super(key: key);
+class FormScreen extends StatefulWidget {
+  FormScreen({Key? key}) : super(key: key);
   static final String ROUTE = 'FORM_SCREEN_ROUTE';
+
+  @override
+  State<FormScreen> createState() => _FormScreenState();
+}
+
+class _FormScreenState extends State<FormScreen> {
+  bool showRoomInput = true;
+
+  bool showEquipmentInput = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,22 +68,60 @@ class FormScreen extends StatelessWidget {
               start: -2,
               end: 10,
             ),
-            DropdownInput(
-              label: 'Room',
-              addable: true,
-              withBookmark: false,
-              items: [
-                'Room 1.01',
-                'Room 1.02',
-                'Room 1.03',
-                'Room 2.01',
-                'Room 3.01',
-                'Room 3.02',
-                'Room 4.01',
-                'Room 4.02',
-                'Room 4.03',
-                'Room 4.04',
-              ],
+            SingleSelectDoubleToggle(
+              label: 'Location',
+              onToggle: (int choice) {
+                setState(() {
+                  if (choice == 0) {
+                    // user chosen Room
+                    showEquipmentInput = false;
+                    showRoomInput = true;
+                  } else {
+                    // user chosen Equipment
+                    showEquipmentInput = true;
+                    showRoomInput = false;
+                  }
+                });
+              },
+              children: ['Room', 'Equipment'],
+            ),
+            if (showRoomInput)
+              DropdownInput(
+                label: 'Room',
+                addable: true,
+                withBookmark: false,
+                items: [
+                  'Room 1.01',
+                  'Room 1.02',
+                  'Room 1.03',
+                  'Room 2.01',
+                  'Room 3.01',
+                  'Room 3.02',
+                  'Room 4.01',
+                  'Room 4.02',
+                  'Room 4.03',
+                  'Room 4.04',
+                ],
+              ),
+            if (showEquipmentInput)
+              DropdownInput(
+                label: 'Equipment',
+                addable: true,
+                withBookmark: false,
+                items: [
+                  'Equipment 1.01',
+                  'Equipment 1.02',
+                  'Equipment 1.03',
+                  'Equipment 2.01',
+                  'Equipment 3.01',
+                  'Equipment 3.02',
+                  'Equipment 4.01',
+                ],
+              ),
+            SingleSelectDoubleToggle(
+              label: 'Position',
+              onToggle: (int choice) {},
+              children: ['Inside', 'Outside'],
             ),
             DropdownInput(
               label: 'Time expected to complete the job',
