@@ -1,5 +1,25 @@
 import 'package:dashboard/util/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:adaptive_dialog/adaptive_dialog.dart';
+
+final InputDecoration inputDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(
+    horizontal: 10,
+    vertical: 0,
+  ),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(3),
+    borderSide: BorderSide(
+      color: AppColors.grey,
+    ),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(3),
+    borderSide: BorderSide(
+      color: AppColors.grey,
+    ),
+  ),
+);
 
 //Stores data of each DropdownMenuItem.
 class SelectionItem {
@@ -31,6 +51,7 @@ class DropdownInput extends StatefulWidget {
     this.visible = true,
   }) {
     //initialize selection items
+    print('initialize selection items');
     int i = 100;
     for (var item in items) {
       selectionItems.add(SelectionItem(
@@ -54,6 +75,7 @@ class _DropdownInputState extends State<DropdownInput> {
     super.initState();
     //initialize the list withe first item by default
     selectedItem = widget.selectionItems.first.id;
+    print('initState');
   }
 
   //build the dropdown item
@@ -86,24 +108,7 @@ class _DropdownInputState extends State<DropdownInput> {
       isExpanded: true,
       isDense: false,
       value: selectedItem,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 0,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(3),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(3),
-          borderSide: BorderSide(
-            color: AppColors.grey,
-          ),
-        ),
-      ),
+      decoration: inputDecoration,
       items: widget.selectionItems.map((item) => buildItem(item)).toList(),
       onChanged: (item) {},
     );
@@ -113,6 +118,7 @@ class _DropdownInputState extends State<DropdownInput> {
   Widget build(BuildContext context) {
     return Visibility(
       visible: widget.visible,
+      maintainState: true,
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 0.0,
@@ -137,10 +143,31 @@ class _DropdownInputState extends State<DropdownInput> {
                     size: 18,
                   ),
                 if (widget.addable)
-                  Text(
-                    '+add',
-                    style: TextStyle(
-                      color: AppColors.blue,
+                  GestureDetector(
+                    onTap: () async {
+                      //show dialog
+                      List<String>? inputs = await showTextInputDialog(
+                          title: 'Add New ${widget.label} item',
+                          context: context,
+                          textFields: [
+                            DialogTextField(),
+                          ]);
+
+                      if (inputs != null) {
+                        //Adding New Item To The Dropdown List
+                        int id = widget.selectionItems.last.id + 1;
+                        String title = inputs[0];
+                        setState(() {
+                          widget.selectionItems
+                              .add(SelectionItem(id: id, title: title));
+                        });
+                      }
+                    },
+                    child: Text(
+                      '+add',
+                      style: TextStyle(
+                        color: AppColors.blue,
+                      ),
                     ),
                   ),
               ],
