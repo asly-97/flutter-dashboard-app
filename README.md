@@ -1,6 +1,19 @@
 # dashboard
+Flutter Dashboard App & Customized Input Form.
 
-A new Flutter dashboard project app.
+## Screenshots
+<picture>
+  <img alt="Screenshot" src="/screenshots/screen1.png" width="240"/>
+</picture>
+<picture>
+  <img alt="Screenshot" src="/screenshots/screen2.png" width="240"/>
+</picture>
+<picture>
+  <img alt="Screenshot" src="/screenshots/screen3.png" width="240"/>
+</picture>
+<picture>
+  <img alt="Screenshot" src="/screenshots/screen4.png" width="240"/>
+</picture>
 
 ## Getting Started
 
