@@ -1,6 +1,8 @@
 # dashboard
 Flutter Dashboard App & Customized Input Form.
 
+## [Demo APK](https://github.com/asly-97/flutter-dashboard-app/raw/main/demo/DemoAPK.apk)
+
 ## Screenshots
 <picture>
   <img alt="Screenshot" src="/screenshots/screen1.png" width="240"/>
