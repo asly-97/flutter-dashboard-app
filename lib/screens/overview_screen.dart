@@ -39,14 +39,15 @@ class OverviewScreen extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.only(
           top: 4,
-          left: 10,
-          right: 10,
+          left: 20,
+          right: 20,
           bottom: 40,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SingleChildScrollView(
+              clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
@@ -79,8 +80,10 @@ class OverviewScreen extends StatelessWidget {
               ),
             ),
             SingleChildScrollView(
+              clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ClosableTextCard('Daily'),
                   ClosableTextCard('Safety'),
